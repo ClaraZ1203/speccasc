@@ -53,7 +53,7 @@ if __name__ == "__main__":
     parser.add_argument("-ntt", type=int, default=5) # num trials
     parser.add_argument("-dt", type=str, default="bfloat16") # torch dtype name e.g float16, bfloat16, float32
     parser.add_argument("-d", type=str, default="cpu") # device
-    parser.add_argument("-temp", type=float, default=0.7) # temperature
+    parser.add_argument("-t", type=float, default=0.7) # temperature
     parser.add_argument("-tp", type=float, default=None) # top p
     parser.add_argument("-tk", type=int, default=None) # top k
     parser.add_argument("-rn", type=str, default="sampling") # run name
@@ -72,7 +72,7 @@ if __name__ == "__main__":
         sampling_forward,
         model=model,
         max_new_tokens=args.mt,
-        temperature=args.temp,
+        temperature=args.t,
         top_p=args.tp,
         top_k=args.tk,
     )

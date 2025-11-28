@@ -16,18 +16,18 @@ def run_sampling(model, model_id, bench, device, dtype, max_tokens, num_trials, 
     script = "evaluation/inference_sampling.py"
     run_name = f"sampling_t{temp}_p{top_p}_k{top_k}"
     cmd = [
-        "python", script,
-        "--model-path", model,
-        "--model-id", model_id,
-        "--bench-name", bench,
-        "--device", device,
-        "--dtype", dtype,
-        "--max-tokens", str(max_tokens),
-        "--num-trials", str(num_trials),
-        "--temperature", str(temp),
-        "--top-p", str(top_p),
-        "--top-k", str(top_k),
-        "--run-name", run_name
+        "python3", script,
+        "-mp", model,
+        "-mi", model_id,
+        "-bn", bench,
+        "-d", device,
+        "-dt", dtype,
+        "-mt", str(max_tokens),
+        "-ntt", str(num_trials),
+        "-t", str(temp),
+        "-tp", str(top_p),
+        "-tk", str(top_k),
+        "-rn", run_name
     ]
     run(cmd)
 
@@ -55,22 +55,22 @@ def run_speculative(
     )
 
     cmd = [
-        "python", script,
-        "--model-path", model,
-        "--assistant-model-path", assistant,
-        "--model-id", model_id,
-        "--bench-name", bench,
-        "--device", device,
-        "--dtype", dtype,
-        "--max-tokens", str(max_tokens),
-        "--num-trials", str(num_trials),
-        "--num-assistant-tokens", str(num_assist),
-        "--assistant-confidence-threshold", str(conf_thresh),
-        "--num-assistant-tokens-schedule", schedule,
-        "--temperature", str(temp),
-        "--top-p", str(top_p),
-        "--top-k", str(top_k),
-        "--run-name", run_name
+        "python3", script,
+        "-mp", model,
+        "-amp", assistant,
+        "-mid", model_id,
+        "-bn", bench,
+        "-d", device,
+        "-dt", dtype,
+        "-mt", str(max_tokens),
+        "-ntt", str(num_trials),
+        "-nat", str(num_assist),
+        "-act", str(conf_thresh),
+        "-nats", schedule,
+        "-t", str(temp),
+        "-tp", str(top_p),
+        "-tk", str(top_k),
+        "-rn", run_name
     ]
     run(cmd)
 
@@ -165,19 +165,11 @@ if __name__ == "__main__":
 ## Commands
 
 # Sampling only (no speculative):
-# python run_experiments.py \
-#     --models google/gemma-2-2b-it \
-#     --device cpu
+# python3 run_experiments.py --models google/gemma-2-2b-it --device cpu
 
 # Sampling + Speculative:
-# python run_experiments.py \
-#     --models google/gemma-2-4b-it \
-#     --assistants google/gemma-2-2b-it \
-#     --device cpu
+# python3 run_experiments.py --models google/gemma-2-9b-it --assistants google/gemma-2-2b-it --device cpu
 
 # Multiple models:
-# python run_experiments.py \
-#     --models google/gemma-2-1b-it google/gemma-2-4b-it \
-#     --assistants google/gemma-2-1b-it google/gemma-2-2b-it \
-#     --device cpu
+# python3 run_experiments.py --models google/gemma-2-1b-it google/gemma-2-4b-it --assistants google/gemma-2-1b-it google/gemma-2-2b-it --device cpu
 
