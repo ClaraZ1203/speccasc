@@ -7,7 +7,15 @@ This script will load the target model, loads a smaller assistant model, calls t
 """
 
 
+import functools
+import torch
+import jsonargparse
+from transformers import AutoModelForCausalLM, AutoTokenizer
 
+from evaluation.eval import run_eval
+
+
+@torch.inference_mode()
 def speculative_forward(
         inputs,
         model,
@@ -49,12 +57,18 @@ if __name__ == "__main__":
     parser.add_argument("-c", action=jsonargparse.ActionConfigFile)
     parser.add_argument("-mp", type=str, required=True) # model path
     parser.add_argument("-amp", type=str, required=True) # assistant model path
-    parser.add_argument("-am", type=str, required=True) # assistant model id
+    parser.add_argument("-mid", type=str, required=True) # model id
     parser.add_argument("-bn", type=str, default="gsm8k") # bench name
     parser.add_argument("-mt", type=int, default=320) # max tokens
     parser.add_argument("-ntt", type=int, default=5) # num trials
     parser.add_argument("-dt", type=str, default="bfloat16") # torch dtype name e.g float16, bfloat16, float32
     parser.add_argument("-d", type=str, default="cpu") # device
+    parser.add_argument("-t", type=float, default=0.8) # temperature
+    parser.add_argument("-tp", type=float, default=0.95) # top p
+    parser.add_argument("-tk", type=int, default=50) # top k
+    parser.add_argument("-nat", type=int, default=16) # num assistant tokens
+    parser.add_argument("-nats", type=str, default="constant") # num assistant tokens schedule
+    parser.add_argument("-act", type=float, default=0.8) # assistant confidence threshold
     parser.add_argument("-rn", type=str, default="speculative") # run name
     args = parser.parse_args()
 
@@ -63,3 +77,37 @@ if __name__ == "__main__":
         dtype=getattr(torch, args.dt),
         device_map=args.d,
     )
+
+    assistant_model = AutoModelForCausalLM.from_pretrained(
+        args.amp,
+        dtype=getattr(torch, args.dt),
+        device_map=args.d,
+    )
+
+    tokenizer = AutoTokenizer.from_pretrained(args.mp)
+    model.generation_config.pad_token_id = tokenizer.pad_token_id
+
+    forward_func = functools.partial(
+        speculative_forward,
+        model=model,
+        assistant_model=assistant_model,
+        max_new_tokens=args.mt,
+        temperature=args.t,
+        top_p=args.tp,
+        top_k=args.tk,
+        num_assistant_tokens=args.nat,
+        num_assistant_tokens_schedule=args.nats,
+        assistant_confidence_threshold=args.act,
+    )
+
+    run_eval(
+        model_id=args.mid,
+        tokenizer=tokenizer,
+        forward_func=forward_func,
+        bench_name=args.bn,
+        num_trials=args.ntt,
+        device=args.d,
+        run_name=args.rn,
+    )
+
+
