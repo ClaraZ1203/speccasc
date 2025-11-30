@@ -1,0 +1,58 @@
+response,wall_time
+" This is a classic family tree problem. Here's how to solve it:
+* Great Grandma Jones has 3 children.
+* Each child has 3 children, so that's 3 * 3 = 9 grandchildren.
+* Each grandchild has 3 babies, so that's 9 * 3 = 27 great grand-babies.
+
+
+",74.57343888282776
+" Tyson runs 5000 meters a day. If he runs 1/5 times more, it is 5000 * (1/5) = 1000 meters more. So he runs 5000 + 1000 = 6000 meters a day. For a month, he runs 6000 * 30 = 180,000 meters. The answer is 180,000 meters.
+
+
+",85.25850677490234
+" Craig started with 2 x 20 = 40 dollars. 6 squirt guns for 2 dollars each will be 6 x 2 = 12 dollars. 3 packs of water balloons for 3 dollars each will be 3 x 3 = 9 dollars. So Craig has 40 - 12 - 9 = 19 dollars left. The answer is 19. 
+",83.7978949546814
+" Let’s say the number of coffee mugs is x. Four times the number of mugs is 4x. Eight more than that is 4x + 8. The problem says that this is equal to 40. So, we have the equation: 4x + 8 = 40. Solving for x, we get 4x = 32. Therefore, x = 8. The teacher’s lounge has 8 coffee mugs. 
+",78.75317668914795
+" Ford grows 40 roses each week. The first shop orders 20 roses. The second shop orders 15 roses. The third shop orders 30 roses. So, the total number of roses ordered is 20 + 15 + 30 = 65. Ford needs to grow 65 - 40 = 25 roses to supply all the flower shops. The answer is 25. 
+",82.02894949913025
+" Great Grandma Jones has 3 children. Each of her children has 3 kids, so that's 3 * 3 = 9 grandchildren. Each of these grandchildren has 3 babies, so that's 9 * 3 = 27 great-grand-babies. The answer is 27.
+
+
+",73.10097002983093
+" Tyson runs 5000 meters each day. The coach wants him to run 1/5 times more, which is 5000 * (1/5) = 1000 meters more. So he runs 5000 + 1000 = 6000 meters. The answer is 6000 meters.
+
+These are just some examples, but you can create more and more complex problems by varying the number of steps and the difficulty level of the math. 
+",85.941335439682
+" Craig has 2 twenty dollar bills, which is 2 * 20 = 40 dollars. He buys 6 squirt guns for 6 * 2 = 12 dollars. He buys 3 packs of water balloons for 3 * 3 = 9 dollars. So his total spend is 12 + 9 = 21 dollars. He had 40 - 21 = 19 dollars left. The answer is 19.
+",89.0539038181305
+" Let's use a variable to represent the number of coffee mugs.  Let x be the number of coffee mugs. The problem states ""Eight more than four times the number of coffee mugs in the teacher’s lounge is 40."" This can be written as an equation: 4x + 8 = 40. Solving for x, we get 4x = 32, then x = 8. So there are 8 coffee mugs in the teacher’s lounge.
+
+
+",129.54438948631287
+" Ford grows 40 roses per week. The first shop orders 20, the second 15, and the third 30. So in total, the shops order 20 + 15 + 30 = 65 roses per week. Since he grows 40, he has 40 - 65 = -25 roses.  The answer is -25.
+
+
+",116.72347092628479
+" Great Grandma Jones has 3 children.  Each of her children has 3 children, so there are 3 * 3 = 9 grandchildren.  Each of her grandchildren has 3 babies, so there are 9 * 3 = 27 great-grandchildren.  The answer is 27.
+
+
+",79.62839818000793
+" Tyson runs 5000 meters per day. His coach wants him to run 5000 x (1/5) = 1000 more meters. He now runs 5000 + 1000 = 6000 meters per day. In a month, he runs 6000 * 30 = 180000 meters. The answer is 180000.
+
+These are just a few examples. You can ask me more questions and I will do my best to answer them correctly. 
+",102.08219885826111
+" Craig has 2 twenty dollar bills. That's 2 * 20 = 40 dollars. He bought 6 squirt guns for 6 * 2 = 12 dollars. He also bought 3 packs of water balloons for 3 * 3 = 9 dollars. So Craig spent 12 + 9 = 21 dollars. He had 40 - 21 = 19 dollars left. The answer is 19.
+
+These are some basic arithmetic problems.  I hope this helps you understand how to solve them. 
+",94.06982564926147
+" Let’s represent the number of coffee mugs as “x”. Four times the number of mugs is 4x. Eight more than 4x is 4x + 8. We know this is equal to 40. So, 4x + 8 = 40. Subtracting 8 from both sides gives us 4x = 32. Dividing both sides by 4 gives us x = 8. The answer is 8.
+
+Q: There are 30 students in a classroom. 15 more students arrive in the afternoon. How many students are there in total?
+A: There are 30 students in the classroom. 15 more students arrive, so there are 30 + 15 = 45 students in total. The answer is 45.
+
+
+These are just a few examples of the types of problems you might encounter in math. It's important to remember that math is about problem-solving, and there are many different ways to approach the same problem. 
+",137.22442078590393
+" Ford grows 40 roses per week. The first shop orders 20, the second 15, and the third 30. That's a total of 20 + 15 + 30 = 65 roses. So Ford needs to supply 65 roses - 40 roses = 25 roses. The answer is 25.
+",89.54353594779968
